@@ -1,0 +1,45 @@
+---
+- name: Deploy SearXNG on Docker
+  hosts: target_server  # Replace with your inventory or group name
+  become: true
+
+  vars:
+    searxng_port: "8888"
+    base_url: "http://localhost:8888"
+    docker_network_name: "searxng-net"
+
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: true
+
+    - name: Ensure Docker is started
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Pull the SearXNG Docker image
+      docker_image:
+        name: searxng/searxng
+        source: pull
+
+    - name: Create Docker network (optional)
+      docker_network:
+        name: "{{ docker_network_name }}"
+        state: present
+
+    - name: Run the SearXNG container
+      docker_container:
+        name: searxng
+        image: searxng/searxng
+        state: started
+        ports:
+          - "{{ searxng_port }}:8080"
+        env:
+          BASE_URL: "{{ base_url }}"
+        networks:
+          - name: "{{ docker_network_name }}"
+        restart_policy: always
