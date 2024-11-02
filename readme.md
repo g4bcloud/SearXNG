@@ -117,6 +117,5 @@ ansible-playbook -i inventory.ini deploy_searxng.yml -e "searxng_port=9999 base_
 
 **Conclusion**
 
-readme.md
 Following these steps, you should have **SearXNG** deployed and running on your server using Ansible. Enjoy a privacy-respecting metasearch experience!
 
