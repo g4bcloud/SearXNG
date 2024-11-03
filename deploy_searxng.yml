@@ -25,7 +25,6 @@
       docker_image:
         name: searxng/searxng
         source: pull
-        force_pull: yes
 
     - name: Create Docker network (optional)
       docker_network:
@@ -44,3 +43,4 @@
         networks:
           - name: "{{ docker_network_name }}"
         restart_policy: always
+        
