@@ -9,20 +9,14 @@ This guide outlines the necessary steps to deploy **SearXNG**, a privacy-respect
 
 ## Installation Steps
 
-1. **Update and upgrade the system packages**:
+1. **Update and upgrade the system packages then install Ansible**:
 
 ``` bash
-sudo apt update && sudo apt upgrade -y
-```
+sudo apt update && sudo apt upgrade -y && sudo apt install ansible -y
 
-2. **Install Ansible**:
-   
-``` bash
-sudo apt install ansible -y
 ```
-
    
-3. **Create the Ansible Playbook Files**:
+2. **Create the Ansible Playbook Files**:
 
 • Create a file named deploy_searxng.yml and populate it with the following content:
    
