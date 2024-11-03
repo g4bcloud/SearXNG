@@ -12,9 +12,7 @@ This guide outlines the necessary steps to deploy **SearXNG**, a privacy-respect
 1. **Update and upgrade the system packages**:
 
 ``` bash
-   sudo apt update
-
-   sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 ```
 
 2. **Install Ansible**:
