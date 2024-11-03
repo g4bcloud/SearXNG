@@ -79,7 +79,7 @@ localhost ansible_connection=local
 ```
 
 
-**Running the Ansible Playbook**
+## **Running the Ansible Playbook**
 
 
 1. **Navigate to the directory containing the Ansible files**:
